@@ -5,7 +5,13 @@ plugins {
 }
 
 taboolib {
+    description {
+        dependencies {
+            name("Slimefun")
+        }
+    }
     install("common")
+    install("common-5")
     install("module-configuration")
     install("module-database")
     install("platform-bukkit")
@@ -14,13 +20,17 @@ taboolib {
 }
 
 repositories {
+    maven("https://jitpack.io")
     mavenCentral()
 }
 
 dependencies {
-    compileOnly("ink.ptms:nms-all:1.0.0")
     compileOnly("ink.ptms.core:v11802:11802:mapped")
     compileOnly("ink.ptms.core:v11802:11802:universal")
+    compileOnly("ink.ptms:nms-all:1.0.0")
+
+    compileOnly("com.github.Slimefun:Slimefun4:RC-30")
+
     compileOnly(kotlin("stdlib"))
     compileOnly(fileTree("libs"))
 }

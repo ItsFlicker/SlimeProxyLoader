@@ -1,3 +1,4 @@
+Initialized: false
 Database:
   host: localhost
   port: 3306

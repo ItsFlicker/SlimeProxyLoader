@@ -1,7 +1,7 @@
 package io.github.itsflicker.slimeproxyloader.database
 
-import org.bukkit.entity.Player
 import taboolib.library.configuration.ConfigurationSection
+import java.util.*
 
 /**
  * @author sky
@@ -9,10 +9,10 @@ import taboolib.library.configuration.ConfigurationSection
  */
 abstract class Database {
 
-    abstract fun pull(player: Player): ConfigurationSection
+    abstract fun pull(uuid: UUID): ConfigurationSection
 
-    abstract fun push(player: Player)
+    abstract fun push(uuid: UUID)
 
-    abstract fun release(player: Player)
+    abstract fun release(uuid: UUID)
 
 }
