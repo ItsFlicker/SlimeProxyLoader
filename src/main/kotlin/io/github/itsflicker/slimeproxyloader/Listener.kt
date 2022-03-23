@@ -6,6 +6,7 @@ import io.github.thebusybiscuit.slimefun4.implementation.Slimefun
 import org.bukkit.event.player.PlayerJoinEvent
 import taboolib.common.platform.event.EventPriority
 import taboolib.common.platform.event.SubscribeEvent
+import taboolib.common.platform.function.submit
 
 /**
  * @author wlys
@@ -20,11 +21,13 @@ object Listener {
 
     @SubscribeEvent
     fun e(e: PlayerJoinEvent) {
-        PlayerProfile.get(e.player) {
-            val map = e.player.getDataContainer().getConfigurationSection("researches")?.getKeys(false) ?: return@get
-            Slimefun.getRegistry().researches.forEach { research ->
-                if (map.contains(research.id.toString()) && !it.hasUnlocked(research)) {
-                    it.setResearched(research, true)
+        submit(delay = 20) {
+            PlayerProfile.get(e.player) {
+                val map = e.player.getDataContainer().getConfigurationSection("researches")?.getKeys(false) ?: return@get
+                Slimefun.getRegistry().researches.forEach { research ->
+                    if (map.contains(research.id.toString()) && !it.hasUnlocked(research)) {
+                        it.setResearched(research, true)
+                    }
                 }
             }
         }

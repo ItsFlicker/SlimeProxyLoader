@@ -16,7 +16,7 @@ taboolib {
     install("module-database")
     install("platform-bukkit")
     classifier = null
-    version = "6.0.7-39"
+    version = "6.0.7-44"
 }
 
 repositories {
@@ -29,7 +29,7 @@ dependencies {
     compileOnly("ink.ptms.core:v11802:11802:universal")
     compileOnly("ink.ptms:nms-all:1.0.0")
 
-    compileOnly("com.github.Slimefun:Slimefun4:RC-30")
+    compileOnly("com.github.Slimefun:Slimefun4:RC-31")
 
     compileOnly(kotlin("stdlib"))
     compileOnly(fileTree("libs"))
